@@ -22,6 +22,7 @@ john.drive(van)
 console.log(dexter)
 console.log(john)
 console.log(van)
+console.log(jo)
 
 john.passengers.forEach(function(elem) {
     console.log(elem.name, 'has been on a trip with', john.name );
