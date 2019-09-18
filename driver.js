@@ -1,4 +1,4 @@
-const Driver = class {
+class Driver {
     constructor(name) {
         this.name = name
         this.vehicle = null

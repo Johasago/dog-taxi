@@ -1,4 +1,4 @@
-const Dog = class {
+class Dog {
     constructor(name, breed, age, weight, obedience) {
         this.name = name
         this.breed = breed

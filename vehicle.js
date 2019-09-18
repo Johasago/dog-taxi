@@ -1,4 +1,4 @@
-const Vehicle = class {
+class Vehicle {
     constructor(type, size, make, model) {
         this.type = type
         this.size = size
