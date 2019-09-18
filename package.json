@@ -1,0 +1,19 @@
+{
+  "name": "dog-taxi",
+  "version": "1.0.0",
+  "description": "An app to get dogs from A to B",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johasago/dog-taxi.git"
+  },
+  "author": "Joanna Taylor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Johasago/dog-taxi/issues"
+  },
+  "homepage": "https://github.com/Johasago/dog-taxi#readme"
+}
