@@ -1,5 +1,3 @@
-const Driver = require('./driver')
-
 const Vehicle = class {
     constructor(type, size, make, model) {
         this.type = type

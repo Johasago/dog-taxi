@@ -1,5 +1,3 @@
-const Driver = require('./driver')
-
 const Dog = class {
     constructor(name, breed, age, weight, obedience) {
         this.name = name

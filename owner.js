@@ -1,5 +1,3 @@
-const Dog = require('./dog')
-
 const Owner = class {
     constructor(name, address) {
         this.name = name
