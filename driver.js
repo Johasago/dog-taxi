@@ -14,6 +14,10 @@ class Driver {
         this.passengers.push(dog)
         dog.drivers.push(this)
     }
+
+    static create(obj) {
+        return new Driver(obj.name, obj.vehicle, obj.passengers);
+    }
 }
 
 module.exports = Driver

@@ -8,6 +8,10 @@ class Owner {
     addDog(dog) {
         this.dog.push(dog)
     }
+
+    static create(obj) {
+        return new Owner(obj.name, obj.address, obj.dog)
+    }
 }
 
 module.exports = Owner

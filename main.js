@@ -2,8 +2,9 @@ const Dog = require('./dog')
 const Vehicle = require('./vehicle')
 const Driver = require('./driver')
 const Owner = require('./owner')
+const Database = require('./database')
 
-let dexter = new Dog('Dexter', 'Chow Chow', 2, '35kg', 'stubborn')
+let dexter = new Dog('Dexter', 'Chow Chow', new Date(2016, 10, 26), '35kg', 'stubborn')
 
 var rover = new Dog('Rover', 'Golden Retriever', 12, '28kg', 'grumpy')
 
@@ -27,3 +28,10 @@ console.log(jo)
 john.passengers.forEach(function(elem) {
     console.log(elem.name, 'has been on a trip with', john.name );
 });
+
+dexter.calculateAge()
+
+Database.save(dexter)
+const file = Database.load();
+
+console.log(file.name)

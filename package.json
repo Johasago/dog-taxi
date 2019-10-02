@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Johasago/dog-taxi/issues"
   },
-  "homepage": "https://github.com/Johasago/dog-taxi#readme"
+  "homepage": "https://github.com/Johasago/dog-taxi#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
 }
