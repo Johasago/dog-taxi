@@ -1,27 +1,29 @@
 {
-  "name": "dog-taxi",
-  "version": "1.0.0",
-  "description": "An app to get dogs from A to B",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Johasago/dog-taxi.git"
-  },
-  "author": "Joanna Taylor",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Johasago/dog-taxi/issues"
-  },
-  "homepage": "https://github.com/Johasago/dog-taxi#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.3.2",
-    "mongoose": "^5.7.3",
-    "pub": "^0.2.0",
-    "pug": "^2.0.4"
-  }
+    "name": "dog-taxi",
+    "version": "1.0.0",
+    "description": "An app to get dogs from A to B",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "concurrently \"node server.js\" \"cd client && npm start\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Johasago/dog-taxi.git"
+    },
+    "author": "Joanna Taylor",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Johasago/dog-taxi/issues"
+    },
+    "homepage": "https://github.com/Johasago/dog-taxi#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "mongodb": "^3.3.2",
+        "mongoose": "^5.7.3",
+        "pub": "^0.2.0",
+        "multer": "^1.4.2",
+        "pug": "^2.0.4"
+    }
 }
