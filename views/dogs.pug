@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    if dogs.length == 0
+      h1 There are no dogs yet
+    else
+      h1 The number of the dogs is #{dogs.length}
+    each dog in dogs
+      pre #{JSON.stringify(dog, null, 4)}
