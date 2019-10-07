@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    //- This just displays the passed data
+    h1 The number of dogs is #{data.length}
+
+    each d in data
+        pre #{JSON.stringify(d, null, 4)}

@@ -1,17 +1,16 @@
-class Owner {
-    constructor(name, address) {
-        this.name = name
-        this.address = address
-        this.dog = []
-    }
+const mongoose = require('mongoose');
 
-    addDog(dog) {
+const OwnerSchema = mongoose.Schema({
+        name: String,
+        address: String,
+        dog: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Dog'
+        }]
+    });
+
+    /* addDog(dog) {
         this.dog.push(dog)
-    }
+    } */
 
-    static create(obj) {
-        return new Owner(obj.name, obj.address, obj.dog)
-    }
-}
-
-module.exports = Owner
+module.exports = mongoose.model('Owner', OwnerSchema);

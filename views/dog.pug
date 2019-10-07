@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 The number of dogs is #{dogs.length}
+    each dog in dogs
+      pre #{JSON.stringify(dog, null, 4)}
+

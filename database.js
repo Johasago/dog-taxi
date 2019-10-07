@@ -1,21 +1,18 @@
-const fs = require('fs')
-module.exports = {
-     save(data) {
-        let cache = []
-        fs.writeFileSync('data.json', JSON.stringify(data, function(key, value) {
-            if (typeof value === 'object' && value !== null) {
-                if (cache.indexOf(value) !== -1) {
-                    // Circular reference found, discard key
-                    return;
-                }
-                // Store value in our collection
-                cache.push(value);
-            }
-            return value;
-        }));
-        cache = null; // Enable garbage collection
-    },
-    async load() {
-        return JSON.parse(fs.readFileSync('data.json'))
-    }
-}
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+
+
+mongoose.connect('mongodb://localhost/dog-taxi')
+    .then(() => {
+        console.log('Mongoose connected')
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+    

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    
+    if owners.length == 0
+      h1 There are no owners yet!
+    else
+      h1 The number of owners is #{owners.length}
+
+    each owner in owners
+      pre #{JSON.stringify(owner, null, 4)}
+
