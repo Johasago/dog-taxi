@@ -1,4 +1,4 @@
-const DogModel = require('../model/dogSchema')
+const DogModel = require('../model/dog')
 
 async function findAll() {
     return DogModel.find()

@@ -1,10 +1,10 @@
-label input {
-    display: block;
-    margin: auto
+.character-counter {
+    display: none
 }
 
-select {
-    display: block;
-    margin: auto
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 55%;
+    left: 9%
 }
-

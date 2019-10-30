@@ -1,4 +1,4 @@
-const OwnerModel = require('../owner')
+const OwnerModel = require('../model/owner')
 
 async function findAll() {
     return OwnerModel.find()
@@ -16,9 +16,14 @@ async function find(_id) {
     return OwnerModel.findOne({ _id })
 }
 
+async function findByEmail(email) {
+    return OwnerModel.findOne({ email })
+}
+
 module.exports = {
     findAll,
     find,
+    findByEmail,
     add,
     del
 }

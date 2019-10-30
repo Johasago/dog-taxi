@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import DogForm from './DogForm';
-
-const images = require.context('./images', false);
+import Login from './Login';
+import Home from './Home';
+import Dogs from './Dogs';
+import OwnerForm from './OwnerForm';
 
 class App extends Component {
-    state = {dogs: []}
-  
-    componentDidMount() {
-      fetch('/dogs/all')
-        .then(res => res.json())
-        .then(dogs => this.setState({ dogs }));
-    }
-  
+
     render() {
-      return (
-        <div className="App">
-          <h1>The dogs that have registered are</h1>
-          {this.state.dogs.map((dog, i) =>
-            <div key={i}><ul><li><strong>{dog.name}</strong> is a {dog.breed} and is {dog.obedience}</li>
-            <img src={dog.image ? images('./' + dog.image ) : ''} alt={dog.name} style={{height:'200px', width:'200px', objectFit: 'cover'}}></img>
-            </ul></div>
-          )}
-          <DogForm />
-        </div>
-      );
-    }
+      const App = () => (
+        <div>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/login' component={Login}/>
+          <Route path='/dogs' component={Dogs}/>
+          <Route path='/register' component={DogForm}/>
+          <Route path='/ownerregister' component={OwnerForm}/>
+
+
+        </Switch>
+      </div>
+      )
+    return (
+      <Switch>
+        <App/>
+      </Switch>
+    );
   }
+}
   
   export default App;
