@@ -4,8 +4,10 @@
     "description": "An app to get dogs from A to B",
     "main": "main.js",
     "scripts": {
+        "start": "node server.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "server": "nodemon server.js --ignore client"
+        "server": "nodemon server.js --ignore client",
+        "heroku-postbuild": "cd client && npm install && npm run build"
     },
     "repository": {
         "type": "git",
