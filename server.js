@@ -32,7 +32,9 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage })
 
-app.listen(3001, () => {
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
     console.log('Server listening on port 3001');
 });
 
