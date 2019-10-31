@@ -4,10 +4,9 @@
     "description": "An app to get dogs from A to B",
     "main": "main.js",
     "scripts": {
-        "start": "npm install && node server.js”",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js”",
         "server": "nodemon server.js",
-        "heroku-postbuild": "cd client && npm install && npm run build"
+        "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
     },
     "repository": {
         "type": "git",
@@ -19,11 +18,15 @@
         "url": "https://github.com/Johasago/dog-taxi/issues"
     },
     "homepage": "https://github.com/Johasago/dog-taxi#readme",
+    "engines": {
+        "node": "10.11.0"
+    },
     "dependencies": {
         "@ideal-postcodes/core-node": "^1.1.0",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
         "concurrently": "^5.0.0",
+        "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-async-errors": "^3.1.1",
         "express-fileupload": "^1.1.6-alpha.5",
