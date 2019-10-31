@@ -4,7 +4,7 @@
     "description": "An app to get dogs from A to B",
     "main": "main.js",
     "scripts": {
-        "start": "node server.js”",
+        "start": "node server.js",
         "server": "nodemon server.js",
         "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
     },
