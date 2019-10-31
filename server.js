@@ -33,19 +33,18 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage })
 
-// ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "client", "build")))
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static( 'client/build' ));
 
-// ...
-// Right before your app.listen(), add this:
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+  app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+  });
+}
 
 const port = process.env.PORT || 3001
 
 app.listen(port, () => {
-    console.log('Server listening on port 3001');
+    console.log(`Server listening on port ${port}`);
 });
 
 app.get('/', (req, res, next) => {
