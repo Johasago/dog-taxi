@@ -38,7 +38,7 @@ var upload = multer({ storage: storage })
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static( 'client/build' ));
 
-  app.get('/', (req, res) => {
+  app.get('/' || '/dogs' || 'register' || 'ownerregister' || 'login', (req, res) => {
       res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
   });
 }
@@ -132,7 +132,7 @@ app.all('/api/postcode', upload.array(), async (req, res) => {
   res.send(addresses.data.addresses)
 })
 
-app.post('/login', upload.array(), async (req, res) => {
+app.post('/api/login', upload.array(), async (req, res) => {
   try { const user = await OwnerService.findByEmail(req.body.email)
   if(!user) {
     return res.status(400).send({ message: "The email does not exist"})

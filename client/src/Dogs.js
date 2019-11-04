@@ -41,7 +41,7 @@ state = {dogs: [],
                     <p> who weighs {dog.weight} </p>
                     <p> is {this.calculateAge(dog.dob)} years old</p>
                     <p> and is {dog.obedience}  </p>
-                    <a href={"http://localhost:3001/dogs/name/" + dog.name} className="secondary-content"><i className="material-icons">grade</i></a>
+                    <a href={"/api/dogs/name/" + dog.name} className="secondary-content"><i className="material-icons">grade</i></a>
                 </li>
             </ul>
         </div>)}

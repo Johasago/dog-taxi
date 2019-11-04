@@ -28,7 +28,7 @@ export default class Home extends Component {
     const fd = new FormData();
     fd.append('email', email);
     fd.append('password', password);
-    axios.post('/login', fd)
+    axios.post('/api/login', fd)
       .then(response => {
         if(response.status === 200) {
           this.setState({loggedIn: true})
