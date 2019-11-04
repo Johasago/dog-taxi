@@ -7,7 +7,8 @@ const images = require.context('../public/images', false);
 
 export default class Dogs extends Component {
 
-state = {dogs: []}
+state = {dogs: [],
+        loggedIn: false}
   
     componentDidMount() {
       fetch('/api/dogs/all')
@@ -24,6 +25,7 @@ state = {dogs: []}
     }
 
     render() {
+        //if(this.state.loggedIn)
     return (
         <div>
         <Navbar/>

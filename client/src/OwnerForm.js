@@ -52,20 +52,21 @@ export default class OwnerForm extends React.Component {
         fd.append('postcode', postcode)
         fd.append('email', email);
         fd.append('password', password);
-
         axios.post('/api/owners', fd).catch(err => {
           M.toast({html:"Email is not unique. Have you registered before? Please try again"});
         })
-        .then(this.setState({
-            firstName: "",
-            lastName: "",
-            address: "",
-            postcode:"",
-            email: "",
-            password: "", 
-            confirmPassword: null
-          })
-      )}}
+        //   .then(this.setState({
+        //     firstName: "",
+        //     lastName: "",
+        //     address: "",
+        //     postcode:"",
+        //     email: "",
+        //     password: "", 
+        //     confirmPassword: null
+        //   })
+        .then(this.props.history.push('/register'))
+
+      }}
 
     setValue(field, event) {
         //If the input fields were directly within this
@@ -73,21 +74,15 @@ export default class OwnerForm extends React.Component {
         //Instead, we want to save the data for when the form is submitted
         let object = {};
         object[field] = event.target.value;
-        if(Object.keys(object)[0] === "address") {
-          object[field]=object[field].split(",")
-          let cleanArray = object[field].filter(function(e){return e}); ;
-          console.log(cleanArray)
-          this.setState(object)
-        }
-        else{
           this.setState(object);
-      }
+  
     }
   
     render() {
       let addresses = this.state.addresses;
         let optionItems = addresses.map((value, index) =>
-                <option key={index} onChange={this.setValue.bind(this, 'address')}>{value}</option>
+                <option key={index} onChange={this.setValue.bind(this, 'address')}>{value.split(',').filter(function(x){
+            return (x !== (" "))}).join(',')}</option>
             );
         return (
         <div>
@@ -102,12 +97,14 @@ export default class OwnerForm extends React.Component {
           <div className="input-field col s12">  
             <button className='btn' value='Look up postcode' onClick={this.handlePostcode}>Look up address</button>    
             </div>   
+            {optionItems.length > 0 &&
             <div className="input-field col s12">
             <select className="browser-default"
               onChange={this.setValue.bind(this, 'address')} >
-            {optionItems}
+            {optionItems} 
       </select>
       </div>
+            }
             </div>
 
           <form name="form" onSubmit={this.handleSubmit}>

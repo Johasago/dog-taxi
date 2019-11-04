@@ -10,6 +10,7 @@ export default class Home extends Component {
     this.state = {
                   email: '',
                   password: '',
+                  loggedIn: false
                   };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,6 +31,7 @@ export default class Home extends Component {
     axios.post('/login', fd)
       .then(response => {
         if(response.status === 200) {
+          this.setState({loggedIn: true})
           this.props.history.push('/dogs')
         }
       })

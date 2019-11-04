@@ -49,9 +49,6 @@ app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
 
-// app.get('/', (req, res, next) => {
-//     res.sendFile(__dirname + '/index.html');
-// });
 
 // Dog endpoints
 

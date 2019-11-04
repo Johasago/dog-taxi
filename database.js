@@ -6,8 +6,8 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-
-mongoose.connect('mongodb+srv://admin:Koalassay33k!@joscluster-txez0.mongodb.net/dogtaxi?retryWrites=true&w=majority')
+const secret = process.env.SECRET
+mongoose.connect('mongodb+srv://admin:' + secret + '@joscluster-txez0.mongodb.net/dogtaxi?retryWrites=true&w=majority')
     .then(() => {
         console.log('Mongoose connected')
     })
