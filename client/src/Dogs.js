@@ -10,9 +10,11 @@ export default class Dogs extends Component {
 state = {dogs: []}
   
     componentDidMount() {
-      fetch('/api/dogs/all')
-        .then(res => res.json())
+      await fetch('/api/dogs/all')
+        .then(res => await res.json())
         .then(dogs => this.setState({ dogs }));
+        if (res.status !== 200) throw Error(body.message);
+
     }
 
     calculateAge = function (dob) {
