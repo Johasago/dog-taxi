@@ -53,7 +53,7 @@ export default class OwnerForm extends React.Component {
         fd.append('email', email);
         fd.append('password', password);
 
-        axios.post('/owners', fd).catch(err => {
+        axios.post('/api/owners', fd).catch(err => {
           M.toast({html:"Email is not unique. Have you registered before? Please try again"});
         })
         .then(this.setState({

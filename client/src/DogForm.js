@@ -48,7 +48,7 @@ export default class DogForm extends React.Component {
       fd.append('imageFile', imageFile);
       fd.append('image', image);
 
-      axios.post('/dogs', fd)
+      axios.post('/api/dogs', fd)
       .then(this.setState({
             name: "",
             breed: "",

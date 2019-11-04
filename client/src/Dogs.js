@@ -10,7 +10,7 @@ export default class Dogs extends Component {
 state = {dogs: []}
   
     componentDidMount() {
-      fetch('/dogs/all')
+      fetch('/api/dogs/all')
         .then(res => res.json())
         .then(dogs => this.setState({ dogs }));
     }
