@@ -18,7 +18,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    M.FormSelect.init(this.FormSelect);
+   // M.FormSelect.init(this.FormSelect);
 }
 
   handleSubmit(event) {

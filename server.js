@@ -38,7 +38,7 @@ var upload = multer({ storage: storage })
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static( 'client/build' ));
 
-  app.get('/' || '/dogs' || 'register' || 'ownerregister' || 'login', (req, res) => {
+  app.use(['/', '/dogs', 'register', 'ownerregister', 'login'], function (req, res) {
       res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
   });
 }
