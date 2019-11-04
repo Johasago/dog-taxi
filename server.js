@@ -38,7 +38,7 @@ var upload = multer({ storage: storage })
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static( 'client/build' ));
 
-  app.get('*', (req, res) => {
+  app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
   });
 }
@@ -49,9 +49,9 @@ app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
 
-app.get('/', (req, res, next) => {
-    res.sendFile(__dirname + '/index.html');
-});
+// app.get('/', (req, res, next) => {
+//     res.sendFile(__dirname + '/index.html');
+// });
 
 // Dog endpoints
 
