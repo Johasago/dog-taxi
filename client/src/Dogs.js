@@ -10,10 +10,9 @@ export default class Dogs extends Component {
 state = {dogs: []}
   
     componentDidMount() {
-      await fetch('/api/dogs/all')
-        .then(res => await res.json())
+      fetch('/api/dogs/all')
+        .then(res => res.json())
         .then(dogs => this.setState({ dogs }));
-        if (res.status !== 200) throw Error(body.message);
 
     }
 
