@@ -44,20 +44,19 @@ export default class OwnerForm extends React.Component {
       if (password !== confirmPassword) {
         M.toast({html: "Passwords don't match"});}
       else{
-        console.log(this)
 
-      const fd = new FormData();
-      fd.append('firstName', firstName)
-      fd.append('lastName', lastName)
-      fd.append('address', address)
-      fd.append('postcode', postcode)
-      fd.append('email', email);
-      fd.append('password', password);
+        const fd = new FormData();
+        fd.append('firstName', firstName)
+        fd.append('lastName', lastName)
+        fd.append('address', address)
+        fd.append('postcode', postcode)
+        fd.append('email', email);
+        fd.append('password', password);
 
-      axios.post('/owners', fd).catch(err => {
-        M.toast({html:"Email is not unique. Have you registered before? Please try again"});
-      })
-      .then(this.setState({
+        axios.post('/owners', fd).catch(err => {
+          M.toast({html:"Email is not unique. Have you registered before? Please try again"});
+        })
+        .then(this.setState({
             firstName: "",
             lastName: "",
             address: "",

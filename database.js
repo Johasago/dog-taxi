@@ -7,7 +7,7 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
 
-mongoose.connect('mongodb+srv://admin:Koalassay33k!@joscluster-txez0.mongodb.net/dog-taxi?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://admin:Koalassay33k!@joscluster-txez0.mongodb.net/dogtaxi?retryWrites=true&w=majority')
     .then(() => {
         console.log('Mongoose connected')
     })
