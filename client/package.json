@@ -10,6 +10,7 @@
         "materialize": "^1.0.0",
         "materialize-css": "^1.0.0",
         "node-postcodes.io": "^1.0.0",
+        "path": "^0.12.7",
         "react": "^16.10.2",
         "react-dom": "^16.10.2",
         "react-image": "^2.2.1",
