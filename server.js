@@ -1,9 +1,11 @@
 const express = require('express')
-const expressAsync = require ('express-async-errors');
+//const expressAsync = require ('express-async-errors');
 const bodyParser = require('body-parser')
 const multer = require('multer')
 const axios = require('axios')
 const Bcrypt = require('bcryptjs')
+const path = require('path');
+
 require("dotenv").config()
 //const pug = require('pug')
 const DogService = require('./services/dog-service')
@@ -53,17 +55,18 @@ app.get('/', (req, res, next) => {
 
 // Dog endpoints
 
-app.get('/dogs/all', async (req, res) => {
+app.get('/api/dogs/all', async (req, res) => {
     const dogs = await DogService.findAll()
     res.json( dogs )
+    res.status(500).send(error)
   })
   
-  app.get('/dogs/:id', async (req, res) => {
+  app.get('/api/dogs/:id', async (req, res) => {
     const dog = await DogService.find(req.params.id)
     res.render('data', { data: dog })
   })
   
-  app.post('/dogs', upload.single('imageFile'), async (req, res) => {
+  app.post('/api/dogs', upload.single('imageFile'), async (req, res) => {
     const file = req.file
     if (!file) {
       const error = new Error('Please upload a file')
@@ -76,14 +79,14 @@ app.get('/dogs/all', async (req, res) => {
     res.send(user)
   })
 
-  app.get('/dogs/name/:name', async (req, res) => {
+  app.get('/api/dogs/name/:name', async (req, res) => {
     const dog = await DogService.findByName(req.params.name)
     res.render('data', { data: dog })
   })
   
   
   
-  app.delete('/dogs/:id', async (req, res) => {
+  app.delete('/api/dogs/:id', async (req, res) => {
     const user = await DogService.del(req.params.id)
     res.send(user)
   })
@@ -91,30 +94,30 @@ app.get('/dogs/all', async (req, res) => {
 
 // Owner endpoints
 
-app.get('/owners/all', async (req, res) => {
+app.get('/api/owners/all', async (req, res) => {
   const owners = await OwnerService.findAll()
   res.json( owners )
 })
 
-app.get('/owners/:id', async (req, res) => {
+app.get('api/owners/:id', async (req, res) => {
   const owner = await OwnerService.find(req.params.id)
   res.render('data', { data: owner })
 })
 
-app.post('/owners', upload.array(), async (req, res) => {
+app.post('/api/owners', upload.array(), async (req, res) => {
   req.body.password = Bcrypt.hashSync(req.body.password, 10)
   user = await OwnerService.add(req.body)
   res.send(user)
 })
 
-app.get('/owners/name/:name', async (req, res) => {
+app.get('/api/owners/name/:name', async (req, res) => {
   const owner = await OwnerService.findByName(req.params.name)
   res.render('data', { data: owner })
 })
 
 
 
-app.delete('/owners/:id', async (req, res) => {
+app.delete('/api/owners/:id', async (req, res) => {
   const user = await Owner.del(req.params.id)
   res.send(user)
 })
@@ -126,7 +129,7 @@ async function lookupAddress(postcode, number) {
 }
 
 let addresses;
-app.all('/postcode', upload.array(), async (req, res) => {
+app.all('/api/postcode', upload.array(), async (req, res) => {
   //const query = req.body.number + req.body.postcode;
   addresses = await lookupAddress(req.body.postcode, req.body.number);
   res.send(addresses.data.addresses)
