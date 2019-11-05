@@ -24,7 +24,7 @@ render() {
             <ul className="right hide-on-med-and-down" >
                 <li><Link to={'./ownerregister'}>Register</Link></li>
                 <li><Link to={'./login'}>Sign In</Link></li>
-                <li><Link to={'./Dogs'}>Dogs</Link></li>
+                <li><Link to={'./Doggos'}>Dogs</Link></li>
             </ul>
         </div>
     </nav>
