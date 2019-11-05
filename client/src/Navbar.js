@@ -23,6 +23,7 @@ render() {
             <Link to={'./'} data-target="mobile" className="sidenav-trigger" onMouseOver={this.handleHover}><i className="material-icons">menu</i></Link>
             <ul className="right hide-on-med-and-down" >
                 <li><Link to={'./ownerregister'}>Register</Link></li>
+                <li><Link to={'./register'}>Register Your Dog</Link></li>
                 <li><Link to={'./login'}>Sign In</Link></li>
                 <li><Link to={'./Doggos'}>Dogs</Link></li>
             </ul>
@@ -33,7 +34,7 @@ render() {
         <li><Link to={'./ownerregister'}>Register</Link></li>
         <li><Link to={'./register'}>Register Your Dog</Link></li>
         <li><Link to="./login">Sign In</Link></li>
-        <li><Link to={'./Dogs'}>Dogs</Link></li>
+        <li><Link to={'./Doggos'}>Dogs</Link></li>
     </ul>
     </div>
 )
