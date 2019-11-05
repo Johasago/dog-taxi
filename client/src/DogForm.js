@@ -57,7 +57,7 @@ export default class DogForm extends React.Component {
             obedience: "",
             image: "",
             imageFile: "" }))
-      .then(this.props.history.push('/dogs'))
+      .then(this.props.history.push('/doggos'))
       
     }
 

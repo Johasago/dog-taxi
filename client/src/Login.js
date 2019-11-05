@@ -37,7 +37,8 @@ export default class Home extends Component {
       })
       .catch(err => {
         M.toast({html: err.response.data.message})
-    })
+    }).then(this.props.history.push('/doggos'))
+
   }
 
   setValue(field, event) {
