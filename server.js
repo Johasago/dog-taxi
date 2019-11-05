@@ -26,7 +26,7 @@ app.use(function(err, req, res, next) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'client/public/images')
+    cb(null, path.join(__dirname, 'client/public/images'))
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname)
