@@ -32,7 +32,7 @@ export default class Home extends Component {
       .then(response => {
         if(response.status === 200) {
           this.setState({loggedIn: true})
-          this.props.history.push('/dogs')
+          this.props.history.push('/doggos')
         }
       })
       .catch(err => {
