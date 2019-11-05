@@ -38,10 +38,6 @@ var upload = multer({ storage: storage })
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static( 'client/build' ));
 
-  app.use(['/', '/doggos', 'register', 'ownerregister', 'login'], function (req, res) {
-      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
-  });
-}
 
 const port = process.env.PORT || 3001
 
@@ -145,4 +141,9 @@ app.post('/api/login', upload.array(), async (req, res) => {
   res.status(500).send(error)
 }
 })
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+});
+}
 
