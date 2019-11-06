@@ -5,6 +5,7 @@ const multer = require('multer')
 const axios = require('axios')
 const Bcrypt = require('bcryptjs')
 const path = require('path');
+const cookieParser = require('cookie-parser')
 
 require("dotenv").config()
 //const pug = require('pug')
@@ -17,6 +18,8 @@ const app = express();
 
 app.set('view engine', 'pug')
 app.use(bodyParser.json())
+app.use(cookieParser())
+
 
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
@@ -137,6 +140,12 @@ app.post('/api/login', upload.array(), async (req, res) => {
     return res.status(400).send({ message: "The password is invalid" })
   }
   res.send({ message: "The username and password combination is correct" })
+  response.cookie('nameOfCookie', 'cookieValue', {
+    maxAge: 60 * 60 * 1000, // 1 hour
+    httpOnly: true,
+    secure: true,
+    sameSite: true,
+  })
 } catch(error) {
   res.status(500).send(error)
 }
