@@ -3,7 +3,7 @@ import Img from './Image'
 import Navbar from './Navbar';
 
 const images = require.context('../public/images', false);
-//const defaultImage = "https://dogsnet.com/wp-content/uploads/2018/05/chusky-header.jpg"
+const defaultImage = "https://dogsnet.com/wp-content/uploads/2018/05/chusky-header.jpg"
 
 export default class Dogs extends Component {
 
@@ -35,7 +35,7 @@ state = {dogs: [],
         <div key={i}>
             <ul className="collection">
                 <li className="collection-item avatar">
-                    <Img src={images(`./${dog.image}`)} className='circle responsive-img' style={{ objectFit: "cover"}} id='img' alt={dog.name} />
+                    <Img src={images(`./${dog.image}`) || defaultImage} className='circle responsive-img' style={{ objectFit: "cover"}} id='img' alt={dog.name} />
                     <span className="title" > <strong>{dog.name}</strong></span>
                     <p> a {dog.breed}</p>
                     <p> who weighs {dog.weight} </p>
